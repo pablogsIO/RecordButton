@@ -12,7 +12,7 @@
 		6E28325420A4DF7F007B9A78 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E28325220A4DF7F007B9A78 /* Main.storyboard */; };
 		6E28325620A4DF81007B9A78 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6E28325520A4DF81007B9A78 /* Assets.xcassets */; };
 		6E28325920A4DF81007B9A78 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E28325720A4DF81007B9A78 /* LaunchScreen.storyboard */; };
-		6E28326520A4DFE0007B9A78 /* RecordButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E28326420A4DFE0007B9A78 /* RecordButtonView.swift */; };
+		6E28326520A4DFE0007B9A78 /* RecordButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E28326420A4DFE0007B9A78 /* RecordButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,7 +23,7 @@
 		6E28325520A4DF81007B9A78 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6E28325820A4DF81007B9A78 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6E28325A20A4DF81007B9A78 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6E28326420A4DFE0007B9A78 /* RecordButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordButtonView.swift; sourceTree = "<group>"; };
+		6E28326420A4DFE0007B9A78 /* RecordButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,7 +94,7 @@
 		6E28326320A4DFB3007B9A78 /* RecordButton */ = {
 			isa = PBXGroup;
 			children = (
-				6E28326420A4DFE0007B9A78 /* RecordButtonView.swift */,
+				6E28326420A4DFE0007B9A78 /* RecordButton.swift */,
 			);
 			path = RecordButton;
 			sourceTree = "<group>";
@@ -187,7 +187,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6E28326520A4DFE0007B9A78 /* RecordButtonView.swift in Sources */,
+				6E28326520A4DFE0007B9A78 /* RecordButton.swift in Sources */,
 				6E28325120A4DF7F007B9A78 /* ViewController.swift in Sources */,
 				6E28324F20A4DF7F007B9A78 /* AppDelegate.swift in Sources */,
 			);

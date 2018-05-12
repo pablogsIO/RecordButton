@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    var recordButton: RecordButtonView?
+    var recordButton: RecordButton?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,16 +18,18 @@ class ViewController: UIViewController {
     }
 
     override func viewDidAppear(_ animated: Bool) {
+
         super.viewDidAppear(animated)
 
-        let recordButtonSide = self.view.bounds.size.height/8
-        recordButton = RecordButtonView(frame: CGRect(x: self.view.bounds.width/2-recordButtonSide,
+        let recordButtonSide = self.view.bounds.size.height/15
+        recordButton = RecordButton(frame: CGRect(x: self.view.bounds.width/2-recordButtonSide/2,
                                                       y: self.view.bounds.height-recordButtonSide,
                                                       width: recordButtonSide,
                                                       height: recordButtonSide))
         recordButton?.delegate = self
 
         self.view.addSubview(recordButton!)
+
     }
 
     override func didReceiveMemoryWarning() {

@@ -13,28 +13,32 @@ protocol RecordButtonDelegate: class {
     func tapButton(isRecording: Bool)
 }
 
-@IBDesignable open class RecordButtonView: UIView {
+@IBDesignable open class RecordButton: UIView {
 
-    var isRecording = false
-    var roundView: UIView?
-    var delegate: RecordButtonDelegate?
-    var squareSide: CGFloat?
+    private var isRecording = false
+    private var roundView: UIView?
+    private var squareSide: CGFloat?
 
-    override init(frame: CGRect) {
+    private let externalCircleFactor: CGFloat = 0.1
+    private let roundViewSideFactor: CGFloat = 0.8
+
+    weak var delegate: RecordButtonDelegate?
+
+    override public init(frame: CGRect) {
         super.init(frame: frame)
-        setupRecordButtonView()
-
     }
 
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        self.backgroundColor = UIColor.clear
+    }
+
+    override open func draw(_ rect: CGRect) {
 
         setupRecordButtonView()
     }
 
     private func setupRecordButtonView() {
-
-        self.backgroundColor = UIColor.clear
 
         drawExternalCircle()
         drawRoundedButton()
@@ -42,14 +46,17 @@ protocol RecordButtonDelegate: class {
 
     }
     private func drawExternalCircle() {
+
         let layer = CAShapeLayer()
+        let radius = min(self.bounds.width, self.bounds.height)/2
+        let lineWidth = externalCircleFactor*radius
         layer.path = UIBezierPath(arcCenter: CGPoint(x: self.bounds.size.width/2,
                                                      y: self.bounds.size.height/2),
-                                  radius: self.frame.size.height/2-2.5,
+                                  radius: radius-lineWidth/2,
                                   startAngle: 0,
                                   endAngle: 2*CGFloat(Float.pi),
                                   clockwise: true).cgPath
-        layer.lineWidth = 5
+        layer.lineWidth = lineWidth
         layer.fillColor = UIColor.clear.cgColor
         layer.strokeColor = UIColor.white.cgColor
         layer.opacity = 1
@@ -58,7 +65,8 @@ protocol RecordButtonDelegate: class {
     }
 
     private func drawRoundedButton() {
-        squareSide = 3*self.frame.size.height/4
+
+        squareSide = roundViewSideFactor*min(self.bounds.width, self.bounds.height)
 
         roundView = UIView(frame: CGRect(x: self.frame.size.width/2-squareSide!/2,
                                          y: self.frame.size.height/2-squareSide!/2,
@@ -69,7 +77,7 @@ protocol RecordButtonDelegate: class {
 
         self.addSubview(roundView!)
     }
-    private func recordToStopAnimation() -> CAAnimationGroup {
+    private func recordButtonAnimation() -> CAAnimationGroup {
 
         let transformToStopButton = CABasicAnimation(keyPath: "cornerRadius")
 
@@ -93,7 +101,7 @@ protocol RecordButtonDelegate: class {
 
     @objc func tappedView(_ sender: UITapGestureRecognizer) {
 
-        self.roundView?.layer.add(self.recordToStopAnimation(), forKey: "")
+        self.roundView?.layer.add(self.recordButtonAnimation(), forKey: "")
 
         isRecording = !isRecording
         delegate?.tapButton(isRecording: isRecording)
@@ -101,6 +109,7 @@ protocol RecordButtonDelegate: class {
     }
 
     override open func prepareForInterfaceBuilder() {
+        self.backgroundColor = UIColor.clear
         setupRecordButtonView()
     }
 
