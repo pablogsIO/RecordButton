@@ -78,10 +78,10 @@ extension ViewController: RecordButtonDelegate {
 ## Support/Issues
 If you have any questions, please don't hesitate to create an issue.
 
-## ToDo
+## To-Do
 * Add Cocoapods
 
 ## License
 RecordButton is available under the MIT license. See the LICENSE file for more info.
 
-If you use it, i'll be happy to know about it.
+If you use it, I'll be happy to know about it.
