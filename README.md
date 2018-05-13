@@ -57,7 +57,7 @@ You have a fully functional demo in Example folder
 ```
 ### Delegate
 
-The ViewController should adopt RecordButtonDelegate protocol to control when the button is pressed
+The ViewController should conform RecordButtonDelegate protocol to control when the button is pressed
 
 ```swift
 extension ViewController: RecordButtonDelegate {
