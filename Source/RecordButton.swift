@@ -26,6 +26,7 @@ protocol RecordButtonDelegate: class {
 
     override public init(frame: CGRect) {
         super.init(frame: frame)
+        self.backgroundColor = UIColor.clear
     }
 
     required public init?(coder aDecoder: NSCoder) {
