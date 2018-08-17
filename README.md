@@ -32,6 +32,18 @@ You have a fully functional demo in Example folder
     <img width="800" src="Images/IBRecordButton.gif">
 </p>
 
+- In your ViewController add the following
+```swift
+
+    @IBOutlet weak var recordButton: RecordButton!
+    override func viewDidAppear(_ animated: Bool) {
+
+        super.viewDidAppear(animated)
+
+        recordButton.delegate = self
+    }
+```
+
 
 ### Manually
 
