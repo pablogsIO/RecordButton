@@ -27,15 +27,12 @@ protocol RecordButtonDelegate: class {
     override public init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = UIColor.clear
+        setupRecordButtonView()
     }
 
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         self.backgroundColor = UIColor.clear
-    }
-
-    override open func draw(_ rect: CGRect) {
-
         setupRecordButtonView()
     }
 
@@ -107,6 +104,13 @@ protocol RecordButtonDelegate: class {
         isRecording = !isRecording
         delegate?.tapButton(isRecording: isRecording)
 
+    }
+
+    // To be used when app goes to background
+    // Advance animation and save recording
+    public func endRecording() {
+        self.roundView?.layer.add(self.recordButtonAnimation(), forKey: "")
+        isRecording = !isRecording
     }
 
     override open func prepareForInterfaceBuilder() {
